@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Cliente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Registrar Cliente</h2>
+    <form th:action="@{/clientes/guardar}" th:object="${cliente}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" th:field="*{nombre}">
+            <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-control" th:field="*{apellido}">
+            <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Documento</label>
+            <input type="text" class="form-control" th:field="*{documento}">
+            <span class="text-danger" th:if="${#fields.hasErrors('documento')}" th:errors="*{documento}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="text" class="form-control" th:field="*{telefono}">
+            <span class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{apellido}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" th:field="*{email}">
+            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="/clientes/" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+</body>
+</html>
