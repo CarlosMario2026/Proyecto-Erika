@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
-    List<Vendedor> findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCase(String nombre, String apellido);
+    List<Vendedor> findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCaseOrCodigoContainingIgnoreCase(String nombre, String apellido, String codigo);
 }

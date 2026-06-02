@@ -30,6 +30,6 @@ public class VendedorService {
     }
 
     public List<Vendedor> buscar(String texto) {
-        return repository.findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCase(texto, texto);
+        return repository.findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCaseOrCodigoContainingIgnoreCase(texto, texto, texto);
     }
 }
