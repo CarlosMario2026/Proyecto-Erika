@@ -28,4 +28,8 @@ public class VendedorService {
     public void eliminar(Long id) {
         repository.deleteById(id);
     }
+
+    public List<Vendedor> buscar(String texto) {
+        return repository.findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCase(texto, texto);
+    }
 }

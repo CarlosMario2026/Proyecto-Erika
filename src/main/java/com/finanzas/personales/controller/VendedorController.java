@@ -17,8 +17,13 @@ public class VendedorController {
     private VendedorService service;
 
     @GetMapping("/")
-    public String listar(Model model) {
-        model.addAttribute("vendedores", service.listarTodos());
+    public String listar(@RequestParam(required = false) String buscar, Model model) {
+        if (buscar != null && !buscar.isEmpty()) {
+            model.addAttribute("vendedores", service.buscar(buscar));
+        } else {
+            model.addAttribute("vendedores", service.listarTodos());
+        }
+        model.addAttribute("buscar", buscar);
         return "vendedores/lista";
     }
 
