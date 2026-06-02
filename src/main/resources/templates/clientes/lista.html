@@ -8,6 +8,13 @@
 <body>
 <div class="container mt-4">
     <h2>Lista de Clientes</h2>
+    <form method="get" action="/clientes/" class="d-flex mb-3">
+        <input type="text" name="buscar" class="form-control me-2"
+               placeholder="Buscar por nombre, apellido o documento..."
+               th:value="${buscar}">
+        <button type="submit" class="btn btn-primary">🔍 Buscar</button>
+        <a href="/clientes/" class="btn btn-secondary ms-2">Limpiar</a>
+    </form>
     <a href="/clientes/nuevo" class="btn btn-success mb-3">+ Nuevo Cliente</a>
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
