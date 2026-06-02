@@ -17,8 +17,13 @@ public class ClienteController {
     private ClienteService service;
 
     @GetMapping("/")
-    public String listar(Model model) {
-        model.addAttribute("clientes", service.listarTodos());
+    public String listar(@RequestParam(required = false) String buscar, Model model) {
+        if (buscar != null && !buscar.isEmpty()) {
+            model.addAttribute("clientes", service.buscar(buscar));
+        } else {
+            model.addAttribute("clientes", service.listarTodos());
+        }
+        model.addAttribute("buscar", buscar);
         return "clientes/lista";
     }
 
