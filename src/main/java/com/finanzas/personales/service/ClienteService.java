@@ -28,4 +28,8 @@ public class ClienteService {
     public void eliminar(Long id) {
         repository.deleteById(id);
     }
+
+    public List<Cliente> buscar(String texto) {
+        return repository.findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCaseOrDocumentoContainingIgnoreCase(texto, texto, texto);
+    }
 }
